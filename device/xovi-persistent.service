@@ -1,0 +1,16 @@
+[Unit]
+Description=Persistent Xovi and AppLoad startup
+After=xochitl.service
+Wants=xochitl.service
+RequiresMountsFor=/home/root/xovi
+OnFailure=xovi-recovery.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/root/xovi/start
+ExecStart=/bin/sleep 8
+ExecStart=/bin/systemctl is-active --quiet xochitl.service
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

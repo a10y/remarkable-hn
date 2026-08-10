@@ -1,0 +1,6 @@
+[Unit]
+Description=Restore stock reMarkable UI after Xovi startup failure
+
+[Service]
+Type=oneshot
+ExecStart=/home/root/xovi/recover-stock.sh
